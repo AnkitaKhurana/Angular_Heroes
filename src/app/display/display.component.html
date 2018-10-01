@@ -22,6 +22,7 @@
 
 -->
 <h2>My Heroes</h2>
+<app-hero-search>Search</app-hero-search>
 
 <div>
   <label>Hero name:
@@ -32,6 +33,8 @@
     add
   </button>
 </div>
+<h3>Top Heroes</h3>
+
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.id}}">
