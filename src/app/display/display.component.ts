@@ -20,8 +20,8 @@ export class DisplayComponent implements OnInit {
   ngOnInit() {
     this.getHeroes();
   }
-  selectedHero: Hero;
-  onSelect(hero: Hero): void {
-  this.selectedHero = hero;
-  }
+  // selectedHero: Hero;
+  // onSelect(hero: Hero): void {
+  // this.selectedHero = hero;
+  // }
 }
