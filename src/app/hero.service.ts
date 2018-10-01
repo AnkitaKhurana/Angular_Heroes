@@ -5,9 +5,15 @@ import { Observable, of } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { MessageService } from "./message.service";
 
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: "root"
 })
+
 export class HeroService {
   /**
    * Handle Http operation that failed.
@@ -50,4 +56,12 @@ export class HeroService {
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl);
   }
+
+  /** PUT: update the hero on the server */
+updateHero (hero: Hero): Observable<any> {
+  return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
+    tap(_ => this.log(`updated hero id=${hero.id}`)),
+    catchError(this.handleError<any>('updateHero'))
+  );
+}
 }
